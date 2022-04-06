@@ -65,6 +65,33 @@ $('#wrapper-tweet').append($tweet);
 
 renderTweets(data);
 
-})
-
+$(function() {
+  const $form = $('#tweet-form');
+  $form.on('submit', function (event) {
+    console.log('Button clicked, performing ajax call...');
+    event.preventDefault();
+    $.ajax({
+      url:'/tweets/',
+      method: 'POST',
+      data: $form.serialize(),
+      success: function(){
+        console.log("everything went well");
+        const newTweet = createTweetElement(
+          {
+            "user": {
+              "name": "Raj",
+              "avatars": "https://i.imgur.com/73hZDYK.png",
+              "handle": "@RajinBuu" },
+            "content": {
+              text: $('.message-box').val()
+            },
+            "created_at": 
+          }
+        )
+        $('#wrapper-tweet').prepend(newTweet);
+        $(".message-box").val(""); 
+        }
+      });
+    });
+  });
 
