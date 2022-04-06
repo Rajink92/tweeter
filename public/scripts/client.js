@@ -67,3 +67,16 @@ $('#wrapper-tweet').append($tweet); // to add it to the page so we can make sure
 renderTweets(data);
 
 })
+
+const loadTweets = function() {
+  return $.ajax({
+    url: '/tweets/',
+    type: "GET",
+    success: function (data) {
+      $("#wrapper-tweet").empty();
+      // console.log(data);
+      renderTweets(data);
+    }
+  });
+};
+loadTweets();
