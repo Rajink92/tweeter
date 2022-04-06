@@ -39,20 +39,20 @@ const renderTweets = function(tweets) {
 
 // CREATE TWEET ELEMENT
 const createTweetElement = function(tweet) {
-  // const currentDate = new Date ();
-  const newTweet = $(`
-    <article class="tweet">
-      <img src="${tweet.user.avatars}">
-      <h3>${tweet.user.name}</h3>
-      <h3 class="handle">${tweet.user.handle}</h3>
-      <p>${tweet.content.text}</p>
-        <footer>
-        10 days ago
-          <div class="footer-icons"> <i class="fa fa-flag"></i> <i class="fa fa-retweet"></i> <i class="fa fa-heart"></i> </div>
-        </footer>
-    </article>`);
-
-    return newTweet;
+  const newTweet = $(
+    `<article class="tweet">
+    <img src="${tweet.user.avatars}">
+    <h3>${tweet.user.name}</h3>
+    <h3 class="handle">${tweet.user.handle}</h3>
+    <p>${tweet.content.text}</p>
+      <footer>
+      Fake date: ${tweet.created_at}
+      ${moment(tweet.created_at).fromNow()}
+        <div class="footer-icons"> <i class="fa fa-flag"></i> <i class="fa fa-retweet"></i> <i class="fa fa-heart"></i> </div>
+      </footer>
+  </article>`
+  );
+  return newTweet;
 };
 
 
