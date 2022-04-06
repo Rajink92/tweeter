@@ -20,8 +20,11 @@
 }
 
 .btn {
-  background: #2a90ab;
-  border-color: #2a90ab;
+  font-family: 'Bungee', cursive;
+  width: 70px;
+  height: 30px;
+  background: #230152;
+  border-color: #a306a5;
   color: white;
   text-align: center;
   padding: 5px;
@@ -34,12 +37,12 @@
 }
 
 .btn:hover {
-  box-shadow: 0 0 5px #2a90ab;
+  box-shadow: 0 0 5px #810556;
 }
 
 .counter {
   float: right;
   position: relative;
-  color: #063947;
+  color: #81055c;
   font-weight: bold;
 }

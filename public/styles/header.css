@@ -22,3 +22,7 @@ header {
   text-align: center;
   z-index: 0;
 }
+h2 {
+  color: #FFFFFF;
+  font-weight: normal;
+}
