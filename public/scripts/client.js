@@ -58,25 +58,13 @@ const createTweetElement = function(tweet) {
 
 const $tweet = createTweetElement(tweetData);
 
-// // Test / driver code (temporary)
-console.log($tweet); // to see what it looks like
-$('#wrapper-tweet').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-
+// test
+console.log($tweet); 
+$('#wrapper-tweet').append($tweet);
 
 
 renderTweets(data);
 
 })
 
-const loadTweets = function() {
-  return $.ajax({
-    url: '/tweets/',
-    type: "GET",
-    success: function (data) {
-      $("#wrapper-tweet").empty();
-      // console.log(data);
-      renderTweets(data);
-    }
-  });
-};
-loadTweets();
+
