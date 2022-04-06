@@ -58,15 +58,20 @@
   background: transparent;
 }
 
+.avatar {
+  width: 50px;
+  height: 50px;
+}
+
 .tweet {
-  border: 2px solid #052C81;
+  border: 2px solid #3f0456;
   margin-top: 30px;
   margin-bottom: 30px;
   transition: box-shadow .8s;
 }
 
 .tweet:hover {
-  box-shadow: 5px 5px 2px 2px #052C81;
+  box-shadow: 5px 5px 2px 2px #81055a;
 }
 
 h3 {
