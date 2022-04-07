@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,700,700i&display=swap">
     <link rel="stylesheet" href="styles/nav.css">
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/new-tweet.css">
+    <link rel="stylesheet" href="styles/new_tweet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -33,7 +33,7 @@
       <div class="chevron">
         <p><strong>Write</strong> a new tweet</p>
         <button class="btn-tweet">
-          <img src="images/flamingo.png" alt="flamingo" height="40" width="40"/>
+          <img src="images/arrowndown.png" alt="chevron" height="40" width="40"/>
         </button>
         </div>
     </nav>
@@ -51,7 +51,7 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <form method="POST" action="/tweets/">
+        <form id="tweet-form" method="POST" action="/tweets/">
           <textarea class="message-box" name="text" placeholder="What are you humming about?"></textarea>
           <input class="btn" type="submit" value="Tweet">
           <span class="counter">140</span>
@@ -60,7 +60,7 @@
 
     <section id="wrapper-tweet">
       <article class="tweet">
-        <h3>Raj</h3>
+        <h3>Rajin</h3>
         <h3 class="handle">@RajinBuu</h3>
         <p>Wow! What a tweeterific app!</p>
         <footer>

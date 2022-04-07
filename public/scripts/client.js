@@ -65,17 +65,15 @@ $('#wrapper-tweet').append($tweet);
 
 renderTweets(data);
 
-$(function() {
+// $(function() {
   const $form = $('#tweet-form');
   $form.on('submit', function (event) {
-    console.log('Button clicked, performing ajax call...');
     event.preventDefault();
     $.ajax({
       url:'/tweets/',
       method: 'POST',
       data: $form.serialize(),
       success: function(){
-        console.log("everything went well");
         const newTweet = createTweetElement(
           {
             "user": {
@@ -94,4 +92,23 @@ $(function() {
       });
     });
   });
+}
 
+// Load tweet
+const loadTweets = function() {
+  return $.ajax({
+    url: '/tweets',
+    type: "GET",
+    success: function (data) {
+      $("#wrapper-tweet").empty();
+      renderTweets(data);
+    }
+  });
+};
+loadTweets();
+
+// form toggle
+
+$('#btn-tweet').click(function(){
+  $('#tweet-form').slideToggle('slow');
+});
