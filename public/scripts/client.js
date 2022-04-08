@@ -10,7 +10,8 @@ const escape =  function(str) {
 };
 
 
-$(document).ready => {
+$(document).ready(function() {
+  loadTweets();
 const data = [
   {
     "user": {
@@ -113,6 +114,37 @@ const loadTweets = function() {
 };
 loadTweets();
 
+// form validation
+$(".error1").hide();
+$(".error2").hide();
+
+$('.message-box').on('input', function() {
+  const content = $(this).val();
+  event.preventDefault();
+  if (content.length > 145) {
+    $(".error2").slideDown(200).delay(2000).fadeOut(400);
+  }
+});
+
+const $emptyForm = $('#tweet-form');
+  $emptyForm.on('submit', function(event) {
+    event.preventDefault();
+    const data = $(this).serialize();
+    const tweetMsgArea = $(this).find('.message-box').val();
+    if (tweetMsgArea === "" || tweetMsgArea === null) {
+      $(".error1").slideDown(200).delay(2000).fadeOut(400);
+    }
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data
+    })
+      .then(function() {
+        loadTweets();
+        console.log('Success', data);
+        $(".message-box").val("");
+      });
+  });
 // form toggle
 
 $('#btn-tweet').click(function(){
