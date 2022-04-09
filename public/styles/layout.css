@@ -26,7 +26,16 @@ main {
   background-color: #F4F1EC;
   padding: 10px;
 }
+@media only screen and (min-width: 768px) {
+  .toggle-btn {
+    position: fixed;
+    left: 96%;
+    top: 95.5%;
+    font-size: 25px;
+  }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+  .toggle-btn:hover {
+    cursor: pointer;
+    color: #ff1bbb;
+  }
+}
