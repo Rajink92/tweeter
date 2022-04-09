@@ -6,50 +6,52 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,700,700i&display=swap">
-    <link rel="stylesheet" href="styles/nav.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/new_tweet.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="styles/newtweet.css"type="text/css">
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <script src="https://use.fontawesome.com/44e8624826.js"></script>
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
-    <script src="scripts/composer-char-counter.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
-
-  </head>
-
-  <body>
+    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+ 
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span>tweeter</span>
+  </head>
+<body>
+  <nav>
+    <span>tweeter</span>
       <div class="chevron">
-        <p><strong>Write</strong> a new tweet</p>
-        <button class="btn-tweet">
-          <img src="images/arrowndown.png" alt="chevron" height="40" width="40"/>
-        </button>
+        <p><strong>Write</strong> a new tweet</p>          
+        <div class="arrow bounce">
+          <button id="btn-tweet">
+            <i id="arrowdown" class="fas fa-angle-double-down"></i>
+          </button>
         </div>
-    </nav>
-    <header>
-      <div class= "profile-icon">
+      </div>   
+  </nav>
 
+    <header>
+      <div>
           <img src="/images/profile-hex.png"> 
       </div>
       <br>
-      <div  class="name-tag"></div>>
-          <h2><strong> Rajin </strong> Buu Tweeter</h2>
+      <div>
+          <h2><strong> RajinBuu's Tweeter </strong></h2>
       </div>
   </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+
       <section>
         <p class="error1"><i class="fas fa-exclamation"></i> This field cannot be empty <i class="fas fa-exclamation"></i> </p>
         <p class="error2"> <i class="fas fa-exclamation"></i> Maximum 140 characters <i class="fas fa-exclamation"></i> </p>
@@ -62,31 +64,14 @@
           <span class="counter">140</span>
         </form>
       </section>
-
-    <section id="wrapper-tweet">
-      <article class="tweet">
-        <h3>Rajin</h3>
-        <h3 class="handle">@RajinBuu</h3>
-        <p>Wow! What a tweeterific app!</p>
-        <footer>
-        2 days ago
-        <div class="footer-icons">
-        <i class="fa fa-flag"></i> <i class="fa fa-retweet"></i> <i class="fa fa-heart"></i>
-        </div>
-        </footer>
-      </article>
-      <article class="tweet">
-          <h3>Raj</h3>
-          <h3 class="handle">@RajinBuu</h3>
-          <p>First Tweet!</p>
-          <footer>
-          10 days ago
-          <div class="footer-icons">
-            <i class="fa fa-flag"></i> <i class="fa fa-retweet"></i> <i class="fa fa-heart"></i>
-          </div>
-          </footer>
-        </article>
-    </section>
+  
+      <section id="wrapper-tweet"></section>
+  
     </main>
-  </body>
-</html>
+    
+    <div class="toggle-btn">
+      <i class="far fa-arrow-alt-circle-up"></i>
+    </div>
+  
+    </body>
+  </html>
