@@ -44,3 +44,21 @@ h2 {
     text-align: center;
     }
 }
+@media only screen and (min-width: 768px) {
+  header {
+    width: 39%;
+    margin-left: 22px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  .profile-icon {
+    position: relative;
+    display: block;
+    margin: auto;
+    padding-top: 70px;
+    z-index: 0;
+    top: 5px;
+    text-align: center;
+    }
+};
