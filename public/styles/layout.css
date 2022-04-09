@@ -3,8 +3,10 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-html {
+ html {
   box-sizing: border-box;
+  font-size: 24px;
+  font-family: "Source Sans Pro", sans-serif;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -15,17 +17,30 @@ html {
  */
 
 body {
-  color: #545149;
+  color: #545139;
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
+  padding-top: 120px
 }
 main {
   width: 90vw;
   margin: auto;
-  background-color: #F4F1EC;
-  padding: 10px;
+  background-color: #f4f1ec;
+  padding: 30px;
 }
+.toggle-btn {
+  position: fixed;
+  left: 89.8%;
+  top: 93%;
+  font-size: 50px;
+}
+
+.toggle-btn:hover {
+  cursor: pointer;
+  color: #ff1bc6;
+}
+/* MEDIA QUERIES */
 @media only screen and (min-width: 768px) {
   .toggle-btn {
     position: fixed;
@@ -39,3 +54,6 @@ main {
     color: #ff1bbb;
   }
 }
+
+
+
