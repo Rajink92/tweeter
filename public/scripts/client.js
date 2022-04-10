@@ -3,47 +3,19 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
 const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
-
-
-$(document).ready(function() {
-  loadTweets();
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 
-  }
-]
-
+  
 // RENDER TWEET
 const renderTweets = function(tweets) {
   for (let tweet of tweets) {
     $("#wrapper-tweet").prepend(createTweetElement(tweet));
-  }
-};
-
+    }
+  };
 // CREATE TWEET ELEMENT
 const createTweetElement = function(tweet) {
   const newTweet = $(
@@ -53,58 +25,19 @@ const createTweetElement = function(tweet) {
     <h3 class="handle">${tweet.user.handle}</h3>
     <p>${tweet.content.text}</p>
       <footer>
-      Fake date: ${tweet.created_at}
       ${moment(tweet.created_at).fromNow()}
         <div class="footer-icons"> <i class="fa fa-flag"></i> <i class="fa fa-retweet"></i> <i class="fa fa-heart"></i> </div>
       </footer>
-  </article>`
-  );
-  return newTweet;
-};
+    </article>`
+    );
+    return newTweet;
+  };
 
 
-const $tweet = createTweetElement(tweetData);
-
-// test
-console.log($tweet); 
-$('#wrapper-tweet').append($tweet);
-
-
-renderTweets(data);
-
-$(function() {
-  const $form = $('#tweet-form');
-  $form.on('submit', function (event) {
-    event.preventDefault();
-    $.ajax({
-      url:'/tweets/',
-      method: 'POST',
-      data: $form.serialize(),
-      success: function(){
-        const newTweet = createTweetElement(
-          {
-            "user": {
-              "name": "Raj",
-              "avatars": "https://i.imgur.com/73hZDYK.png",
-              "handle": "@RajinBuu" },
-            "content": {
-              text: $('.message-box').val()
-            },
-            "created_at": 
-          }
-        )
-        $('#wrapper-tweet').prepend(newTweet);
-        $(".message-box").val(""); 
-        }
-      });
-    });
-  });
-}
-
-// Load tweet
+// LOAD TWEET / FETCH TWEET
 const loadTweets = function() {
   return $.ajax({
-    url: '/tweets',
+    url: '/tweets/',
     type: "GET",
     success: function (data) {
       $("#wrapper-tweet").empty();
@@ -112,9 +45,12 @@ const loadTweets = function() {
     }
   });
 };
-loadTweets();
 
-// form validation
+
+$(document).ready(function() {
+  loadTweets();
+
+// FORM VALIDATION
 $(".error1").hide();
 $(".error2").hide();
 
@@ -126,32 +62,53 @@ $('.message-box').on('input', function() {
     $(".error2").fadeOut();
   }
 });
-
 const $emptyForm = $('#tweet-form');
-  $emptyForm.on('submit', function(event) {
-    event.preventDefault();
-    const data = $(this).serialize();
-    const tweetMsgArea = $(this).find('.message-box').val();
-    if (tweetMsgArea === "" || tweetMsgArea === null) {
-      $(".error1").slideDown(200).delay(2000).fadeOut(400);
-      return;
-    } else if (tweetMsgArea.length > 140) {
-      $(".error2").slideDown(200);
-      return;
-    }
-    $.ajax({
-      url: '/tweets',
-      method: 'POST',
-      data
-    })
-      .then(function() {
-        loadTweets();
-        console.log('Success', data);
-        $(".message-box").val("");
-      });
-  });
-// form toggle
-
-$('#btn-tweet').click(function(){
-  $('#tweet-form').slideToggle('slow');
+$emptyForm.on('submit', function(event) {
+  event.preventDefault();
+  $(".counter").text(140);
+  const data = $(this).serialize();
+  const tweetMsgArea = $(this).find('.message-box').val();
+  if (tweetMsgArea === "" || tweetMsgArea === null) {
+    $(".error1").slideDown(200).delay(2000).fadeOut(400);
+    return;
+  } else if (tweetMsgArea.length > 140) {
+    $(".error2").slideDown(200);
+    return;
+  }
+  $.ajax({
+    url: '/tweets',
+    method: 'POST',
+    data
+  })
+    .then(function() {
+      loadTweets();
+      console.log('Success', data);
+      $(".message-box").val("");
+    });
 });
+  
+// TOGGLE TWEET FORM
+
+  $('.new-tweet').hide();
+  $('#btn-tweet').click(function() {
+    $('.new-tweet').toggle(function(){
+      $('.message-box').focus();
+    });
+  });
+
+  // TOGGLE SCROLL UP BUTTON
+
+  $(".toggle-btn").hide();
+
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+      $('.toggle-btn').fadeIn();
+    } else {
+      $('.toggle-btn').fadeOut();
+    }
+  });
+  
+  $('.toggle-btn').click(function() {
+    window.scrollTo(0, 0);
+  });
+  });

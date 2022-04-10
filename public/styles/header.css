@@ -1,18 +1,21 @@
 header {
-  height: 450px;
+  height: 400px;
   width: 100%;
   color: #ffffff;
   background-color: #82029b;
   background-image: url("https://www.transparenttextures.com/patterns/noisy-net.png");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 0;
+
 }
 
+
 .profile-icon { 
-  position: relative;
-  display: block;
-  margin: auto;
-  padding-top: 70px;
-  z-index: 0;
-  top: 55px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
   text-align: center;
 }
 
@@ -22,28 +25,12 @@ header {
   text-align: center;
   z-index: 0;
 }
+
 h2 {
   color: #FFFFFF;
   font-weight: normal;
 }
 
-@media only screen and (min-width: 768px) {
-  header {
-    width: 39%;
-    margin-left: 22px;
-    float: left;
-    margin-top: 100px;
-  }
-  .profile-icon {
-    position: relative;
-    display: block;
-    margin: auto;
-    padding-top: 70px;
-    z-index: 0;
-    top: 5px;
-    text-align: center;
-    }
-}
 @media only screen and (min-width: 768px) {
   header {
     width: 39%;
