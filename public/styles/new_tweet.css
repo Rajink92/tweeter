@@ -21,8 +21,8 @@
   font-family: 'Bungee', cursive;
   width: 70px;
   height: 30px;
-  background: #230152;
-  border-color: #a306a5;
+  background: #21014d;
+  border-color: #9c059e;
   color: white;
   text-align: center;
   padding: 5px;
@@ -32,7 +32,7 @@
 }
 
 .btn:hover {
-  box-shadow: 0 0 5px #ef37e0;
+  box-shadow: 0 0 5px #eb36dc;
 }
 .counter {
   float: right;
@@ -63,7 +63,7 @@
 }
 
 .tweet {
-  border: 2px solid #3f0456;
+  border: 2px solid #3c0452;
   margin-top: 30px;
   margin-bottom: 30px;
   transition: box-shadow 0.8s;
