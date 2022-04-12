@@ -16,3 +16,13 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+
+Tweeter homepage with new tweet box open
+<img width="1440" alt="Screen Shot 2022-04-02 at 7 21 12 PM" src="https://user-images.githubusercontent.com/95498292/163066800-dcddeb94-3f5c-4d8d-b544-b9ada4371a1a.png">
+Sample tweet posted
+<img width="1440" alt="Screen Shot 2022-04-02 at 7 21 30 PM" src="https://user-images.githubusercontent.com/95498292/163066804-d7e6203f-b45b-43a3-a8e5-75911d7f4c2e.png">
+Maximum character warning when passing 140 chracters
+<img width="1440" alt="Screen Shot 2022-04-02 at 7 21 57 PM" src="https://user-images.githubusercontent.com/95498292/163066811-129c999f-2ef5-44b2-8811-00905034e27f.png">
+
+
